@@ -477,7 +477,7 @@ function search() {
 			html +=post;
 				
             console.log(html);
-            $("#search-results").html(html);
+            $("#search-results").html();
             $("#search-info").show();
             gadgets.window.adjustHeight();
         }
