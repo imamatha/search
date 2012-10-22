@@ -190,7 +190,7 @@ function search() {
     
     $("search-results").html("");
     $(".content").html("");
-   // $(".content").hide();
+    $(".content").hide();
     gadgets.window.adjustHeight();
    /* var types = [];
     $("input:checked").each(function() {
