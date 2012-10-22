@@ -110,7 +110,7 @@ function expandDiscussion(id){
 								console.log("I'm inside expand if");
 								correctanswer +='<div class="answerborder">';
 								correctanswer +='<ul>';
-								correctanswer +='<div class="correct">Correct Answer</div> ';
+								correctanswer +='<li class="correct">Correct Answer</li> ';
 								//correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
 							        //correctanswer +='<div> by ';
