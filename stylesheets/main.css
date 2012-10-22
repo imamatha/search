@@ -1,3 +1,4 @@
+<style type="text/css">
 #search-results ul li {display: inline; padding: .1em 2em; line-height:10px;}
 
 #search-results ul {padding: 0 0;}
@@ -19,9 +20,8 @@ line-height:10px;
 {
 text-decoration:underline; 
 }
-
 .jive-icon-med {
-    background-image: url('../images/jive-icon-sprites-med.png');
+    background-image: url('images/jive-icon-sprites-med.png');
     height: 16px;
     margin: -1px 5px 0 0;
     width: 17px;
@@ -58,27 +58,27 @@ text-decoration:underline;
 
 
 li.image-button{
-    background: url('../images/expand.png') no-repeat top left;
+    background: url('./images/expand.png') no-repeat top left;
     
 }
 .expand   {
- background-image: url('../images/expand.png');
+ background-image: url('./images/expand.png');
  background-repeat:no-repeat;
 }
 li.discussion {
- background-image: url('../images/discussion.png');
+ background-image: url('./images/discussion.png');
  background-repeat:no-repeat;
 }
 li.document {
- background-image: url('../images/doc.png' );
+ background-image: url('./images/doc.png' );
  background-repeat:no-repeat;
 }
 li.update {
- background-image: url('../images/status.png' );
+ background-image: url('./images/status.png' );
  background-repeat:no-repeat;
 }
 li.post {
- background-image: url('../images/blog.png' );
+ background-image: url('./images/blog.png' );
  background-repeat:no-repeat;
 }
 .content{
@@ -126,12 +126,14 @@ background-color:white;
  {
   color:Green;
   font-weight:bold;
+  font-size:14px;
  }
  
- .helpful
+.helpful
  {
   color:#CC6600; 
   font-weight:bold;
+  font-size:14px;
  }
 
 .link
@@ -200,3 +202,4 @@ background-color:white;
  {
   background: #CCCCFF;
  }
+</style>
