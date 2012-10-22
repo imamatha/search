@@ -1,10 +1,4 @@
-<style type="text/css">
-#search-results ul li 
-{
-display: inline; 
-padding: .1em 2em; 
-line-height:10px;
-}
+#search-results ul li {display: inline; padding: .1em 2em; line-height:10px;}
 
 #search-results ul {padding: 0 0;}
 
@@ -26,7 +20,7 @@ line-height:10px;
 text-decoration:underline; 
 }
 .jive-icon-med {
-    background-image: url("../images/jive-icon-sprites-med.png");
+    background-image: url('../images/jive-icon-sprites-med.png');
     height: 16px;
     margin: -1px 5px 0 0;
     width: 17px;
@@ -67,11 +61,11 @@ li.image-button{
     
 }
 .expand   {
- background-image: url('../images/expand.png' );
+ background-image: url('../images/expand.png');
  background-repeat:no-repeat;
 }
 li.discussion {
- background-image: url('../images/discussion.png' );
+ background-image: url('../images/discussion.png');
  background-repeat:no-repeat;
 }
 li.document {
@@ -97,8 +91,8 @@ bottom:10px;
 width:48%;
 background-color:#D8D8D8;
 padding:10px;
+display: inline;
 
-display:inline;
 }
 .content ul li {
 display: inline; 
@@ -118,6 +112,7 @@ background-color:white;
  font-size:12px;
  font-family:"Times New Roman";
  color:black;
+ line-height: 1.5em; 
  }
  
 .root1
@@ -154,8 +149,9 @@ background-color:white;
        border-width: thin;       
         sets border width on all sides*/
         border-color: rgb(160,160,160); 
-        line-height:1;
-        /*text-align: justify; */
+       /* line-height: 1.5em; */
+           line-height: 1em; 
+       
 }
 .border {
        border: 1px solid black;
@@ -183,8 +179,11 @@ background-color:white;
  padding: 5px;
  border: solid 1px #E5E5FF;
  background: #99CCFF;
- font-size:90%; 
- color: black 
+ /*font-size:90%; */
+ font-size:12px;
+ font-family:"Times New Roman";
+ color:black;
+/* line-height: 1.5em; */
  }
  .rootborder 
 {
@@ -193,10 +192,10 @@ background-color:white;
  border: solid 1px #E5E5FF;
  background:#C0C0C0;
  font-size:90%; 
+ /*line-height: 1.5em; */
  color: black 
  }
  .caption2
  {
   background: #CCCCFF;
  }
-</style>
