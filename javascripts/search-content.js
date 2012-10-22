@@ -110,7 +110,7 @@ function expandDiscussion(id){
 								console.log("I'm inside expand if");
 								correctanswer +='<div class="answerborder">';
 								correctanswer +='<ul>';
-								correctanswer +='<li class="correct">Correct Answer</li> ';
+								correctanswer +='<div class="correct">Correct Answer</div>';
 								//correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
 							        //correctanswer +='<div> by ';
@@ -130,7 +130,7 @@ function expandDiscussion(id){
 								console.log("I'm inside expand if");
 								helpfulanswer +='<div class="answerborder">';
 								helpfulanswer +='<ul>';
-								helpfulanswer +='<div><li class="helpful">Helpful Answer </li></div>';
+								helpfulanswer +='<div class="helpful">Helpful Answer</div>';
 								//helpfulanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 								helpfulanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+' </div>';
 								//helfulanswer +='on &nbsp;'+ row.creationDate+ '</li>';
