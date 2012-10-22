@@ -57,11 +57,11 @@ text-decoration:underline;
 
 
 li.image-button{
-    background: url('../images/expand.png') no-repeat top left;
+    background: url('https://github.com/imamatha/search/blob/master/images/expand.png') no-repeat top left;
     
 }
 .expand   {
- background-image: url('../images/expand.png');
+ background-image: url('https://github.com/imamatha/search/blob/master/images/expand.png');
  background-repeat:no-repeat;
 }
 li.discussion {
