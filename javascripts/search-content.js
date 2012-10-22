@@ -132,7 +132,7 @@ function expandDiscussion(id){
 								helpfulanswer +='<ul>';
 								helpfulanswer +='<div class="helpful">Helpful Answer </div> ';
 								//helpfulanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
-								helpfulanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+' </div>';
+								helpfulanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+' </div>';
 								//helfulanswer +='on &nbsp;'+ row.creationDate+ '</li>';
 								helpfulanswer +='<div class="root">'+row.content.text+ '</div>';
 								helpfulanswer +='</ul>';
