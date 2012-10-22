@@ -115,7 +115,7 @@ function expandDiscussion(id){
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
 								correctanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+'</div>';
 							//	correctanswer +='on  ' + row.creationDate+ '</li>';
-								correctanswer +='<li>'+row.content.text+'</li>';
+								correctanswer +='<div class="root">'+row.content.text+'</div>';
 								correctanswer +='</ul>';
 								correctanswer +='</div>';
 								
