@@ -71,7 +71,7 @@ li.discussion {
 }
 
 li.document {
- background-image: url("https://github.com/imamatha/search/blob/master/images/doc.png");
+ background-image: url('/doc.png');
  background-repeat:no-repeat;
 }
 
