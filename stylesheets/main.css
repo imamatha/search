@@ -1,5 +1,10 @@
 <style type="text/css">
-#search-results ul li {display: inline; padding: .1em 2em; line-height:10px;}
+#search-results ul li 
+{
+display: inline; 
+padding: .1em 2em; 
+line-height:10px;
+}
 
 #search-results ul {padding: 0 0;}
 
