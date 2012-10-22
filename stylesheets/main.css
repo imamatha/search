@@ -69,11 +69,11 @@ li.discussion {
  background-repeat:no-repeat;
 }
 li.document {
- background-image: url('/../images/doc.png' );
+ background-image: url('../../../images/doc.png');
  background-repeat:no-repeat;
 }
 li.update {
- background-image: url('../images/status.png' );
+ background-image: url('../images/status.png');
  background-repeat:no-repeat;
 }
 li.post {
