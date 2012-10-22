@@ -113,8 +113,8 @@ function expandDiscussion(id){
 								correctanswer +='<div class="correct">Correct Answer</div> ';
 								//correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
-							        correctanswer +='<div> by ';
-								correctanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+'</div>';
+							        //correctanswer +='<div> by ';
+								correctanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+'</div>';
 							//	correctanswer +='on  ' + row.creationDate+ '</li>';
 								correctanswer +='<div class="root">'+row.content.text+'</div>';
 								correctanswer +='</ul>';
@@ -131,8 +131,8 @@ function expandDiscussion(id){
 								helpfulanswer +='<div class="answerborder">';
 								helpfulanswer +='<ul>';
 								helpfulanswer +='<div class="helpful">Helpful Answer </div> ';
-								helpfulanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
-								helpfulanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+' </div>';
+								//helpfulanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
+								helpfulanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+' </div>';
 								//helfulanswer +='on &nbsp;'+ row.creationDate+ '</li>';
 								helpfulanswer +='<div class="root">'+row.content.text+ '</div>';
 								helpfulanswer +='</ul>';
