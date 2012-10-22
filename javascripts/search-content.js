@@ -111,8 +111,9 @@ function expandDiscussion(id){
 								correctanswer +='<div class="answerborder">';
 								correctanswer +='<ul>';
 								correctanswer +='<div class="correct">Correct Answer</div> ';
-								correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
+								//correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
+							        correctanswer +='<div> by ';
 								correctanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+'</div>';
 							//	correctanswer +='on  ' + row.creationDate+ '</li>';
 								correctanswer +='<div class="root">'+row.content.text+'</div>';
