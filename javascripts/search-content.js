@@ -130,7 +130,7 @@ function expandDiscussion(id){
 								console.log("I'm inside expand if");
 								helpfulanswer +='<div class="answerborder">';
 								helpfulanswer +='<ul>';
-								helpfulanswer +='<li class="helpful">Helpful Answer </li> ';
+								helpfulanswer +='<div><li class="helpful">Helpful Answer </li></div>';
 								//helpfulanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 								helpfulanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+' </div>';
 								//helfulanswer +='on &nbsp;'+ row.creationDate+ '</li>';
