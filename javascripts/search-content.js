@@ -114,7 +114,7 @@ function expandDiscussion(id){
 								//correctanswer +='<div><img src="'+ row.author.avatarURL + '" width=\'25px\' height=\'25px\' border=\'0\'/> by ';
 							        //correctanswer +='<div style="color:Green;font-weight:bold">Correct Answer </div> by ';
 							        //correctanswer +='<div> by ';
-								correctanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+row.creationDate+'</div>';
+								correctanswer +='<div> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+'</div>';
 							//	correctanswer +='on  ' + row.creationDate+ '</li>';
 								correctanswer +='<div class="root">'+row.content.text+'</div>';
 								correctanswer +='</ul>';
