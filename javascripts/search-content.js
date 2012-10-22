@@ -102,11 +102,12 @@ function expandDiscussion(id){
 							console.log("Expanding discussion container response is " + JSON.stringify(response.data));
 							var count=0;
 							if(row.answer){
-								 myDate=row.creationDate.substr(0,10);
-      								 myDate=myDate.split("-");
+								myDate=row.creationDate.substr(0,10);
+      								myDate=myDate.split("-");
       								dateM=myDate[1];
 								var finalMonth=monthConvert(dateM);
-								var newDate=finalMonth+" "+myDate[2]+","+myDate[0];							console.log("I'm inside expand if");
+								var newDate=finalMonth+" "+myDate[2]+","+myDate[0];							
+								console.log("I'm inside expand if");
 								correctanswer +='<div class="answerborder">';
 								correctanswer +='<ul>';
 								correctanswer +='<div class="correct">Correct Answer</div> ';
