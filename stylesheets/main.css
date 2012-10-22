@@ -64,22 +64,27 @@ li.image-button{
  background-image: url('../images/expand.png');
  background-repeat:no-repeat;
 }
+
 li.discussion {
  background-image: url('../images/discussion.png');
  background-repeat:no-repeat;
 }
+
 li.document {
- background-image: url('../images/doc.png');
+ background-image: url('https://github.com/imamatha/search/blob/master/images/doc.png');
  background-repeat:no-repeat;
 }
+
 li.update {
  background-image: url('../images/status.png');
  background-repeat:no-repeat;
 }
+
 li.post {
- background-image: url(' ../images/blog.png');
+ background-image: url('../images/blog.png');
  background-repeat:no-repeat;
 }
+
 .content{
 position:absolute;
 border:1px solid black;
@@ -139,6 +144,7 @@ background-color:white;
 {
  font-size:14px;
 }
+
 .withborder {
        border: 1px solid black;
        /* position:absolute;*/
