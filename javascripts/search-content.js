@@ -9,10 +9,11 @@ $("li.image-button").live('click', function () {
       var curRowId = $(this).attr("id");
       if(curRowId.indexOf("DOC") != -1){
       var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
-      expandDocument(curRowId);
+      expandDocument(docID);
      }
    else
      {
+     console.log("i'm in else section");
      expandDiscussion(curRowId);
      }
 
@@ -170,20 +171,43 @@ $('.firstdiv').css('background-color', '#FFFFFF');
 $('#div_'+id).css('background-color', '#F2F2F2');
 console.log("You are in document section");
 var request = osapi.jive.core.documents.get({id: id});
+var documentdata="";
 request.execute(function(response) {
 console.log("Expanding document response is " + JSON.stringify(response.data));
 var discussionresult=response.data;
+var isBinaryDoc=0;
+try {
+if (response.data.content.binary.ref) {
+isBinaryDoc = 1;
+}
+else {
+isBinaryDoc = 0;
+}	
+}
+catch (err) {
+isBinaryDoc = 0;
+}
 
-if (response.error) {
-console.log("Error in get: "+response.error.message);
-}
 else{
-helpfulanswer +='<div>';
-helpfulanswer +='<ul>';
-helpfulanswer +='<li>This is document</li>';
-helpfulanswer +='</ul>';
-helpfulanswer +='</div>';
+if(isBinaryDoc !=0)
+{
+documentdata +='<div><h4>Description:'+response.data.content.binary.description+'</h4>';
+documentdata +='This Link contains Binary content. Please click below link to open the document</p>';
+documentdata +='<a class="nopad" href='+response.data.resources.html.ref+' target="_apps">'+response.data.content.binary.name+'</a>';
+documentdata +='</div>';
 }
+else
+{
+
+documentdata +='<div>';
+documentdata +='<ul>';
+documentdata +='<li>'+response.data.subject+'</a></li>';
+documentdata +='<div class="root">'+response.data.content.text +'</div>'; 
+documentdata +='</ul>';
+}
+}
+$(".content").show();
+$(".content").html(documentdata);
 });
 }
 // Perform a search and display the results
@@ -357,82 +381,34 @@ function search() {
                                      
                }
                
-			  if(row.type=="document")
+		if(row.type=="document")
                {
-                    //var docID = (url.substring(url.lastIndexOf("-"))).substr(1);
-                    // document +='<div id="div_'+docID+'" class="firstdiv"> ';
-                    document +='<div>';
-                    document +='<ul>';
-                    document +='<li class="document" ><a href="'+url+'" target="_apps">'+subject+'</a></li>';
+		    var docID = (url.substring(url.lastIndexOf("-"))).substr(1);
+                    document +='<div id="div_'+docID+'" class="firstdiv"> ';
+		    document +='<ul>';
+                    document +='<span class="jive-icon-med jive-icon-document"></span><li> <a href="'+url+'" target="_apps">'+subject+'</a></li>';
+   		    document +='<li class="image-button" id="DOC-'+docID+'" ></li>';
                     document +='</ul>';
                     
-                    document +='<div class="root1">';
+		    document +='<div class="root1">';
                     document +='<ul>';
-                    //discussion +='<li>&nbsp;</li>';
-                    //document +='<li>Created by<img src="'+ avatar + '" width=\'25px\' height=\'25px\' border=\'0\'/>';
                     document +='<li>Created by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
-                    document +='Date:'+newDate+'';                  
-                    document +='<li>Replies:'+replyCount+'</li>';         
+                    document +='<li>Date:'+newDate+'</li>';
+                    document +='<li>Replies:'+replyCount+'</li>';
                     document +='</ul>';
                     document +='</div>';
-                    
-                    document +='<div class="root">';     
-                    document +='<ul>';                    
-                    document +='<div class="align">'+contentSummary+'</div>';                   
+
+                    document +='<div class="root">';
+                    document +='<ul>';
+                    document +='<div class="align">'+contentSummary+'</div>';
                     document +='</ul>';
-                    document +='</div>';     
-                     
-                   // document +='<div class="root1">';
-                  //  document +='<ul>';                                       
-                   // document +='<li>Created:'+createdDate+'</li>';
-                  //  document +='<li>Date:'+newDate+'</li>';                  
-                  //  document +='Replies:'+replyCount+'';                  
-                 //   document +='<li>Likes:'+likeCount+'</li>';              
-                  //  document +='</ul>';                    
-                 //   document +='</div>';
-                  //  document +='</div>';
-                  //  document +='<hr size="1" color="lightgrey">';   
-                    document +='<br>';
-                     document +='</div>';
-                    
-                  
+		    document +='</div>';
+                                       
+                    document +='</div>';
+                      
                   
                }
-		//	   if(row.type=="update")
-              // {
-                   //  update +='<div>';
-                  //   update +='<ul>';
-                   //  update +='<li class="update" ><a href="'+url+'" target="_apps">'+contentSummary+'</a></li>';
-                   //  update +='</ul>';
-                    
-                   //  update +='<div class="root1">';
-                    // update +='<ul>';
-                    ///discussion +='<li>&nbsp;</li>';
-                     //update +='<li>Created by<img src="'+ avatar + '" width=\'25px\' height=\'25px\' border=\'0\'/><a href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
-                     //update +='<li>Created by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
-                    // update +='</ul>';
-                    // update +='</div>';
-                     
-                     //update +='<div class="root">';     
-                    // update +='<ul>';                   
-                    // update +='<div class="align">'+contentSummary+'</div>';  
-                    // update +='</ul>';
-                    // update +='</div>';     
-                   
-                    // update +='<div class="root1">';
-                    // update +='<ul>';                                       
-                     ///update +='<li>Created:'+createdDate+'</li>';
-                   //  update +='<li>Date:'+newDate+'</li>';                 
-                   //  update +='Replies:'+replyCount+'';                  
-                    // update +='<li>Likes:'+likeCount+'</li>';              
-                    // update +='</ul>';
-                   //  update +='</div>';
-                    // update +='</div>';   
-                   //  update +='<hr size="1" color="lightgrey">'; 
-                     ///update +='<br>';
-                                    
-               // }
-                
+		
 	            if(row.type=="post")
                {
                      post +='<div>';
@@ -456,18 +432,7 @@ function search() {
                      post +='<div class="align">'+contentSummary+'</div>';  
                      post +='</ul>';
                      post +='</div>';  
-                     post +='</div>';
-                   
-                    // post +='<div class="root1">';
-                     //post +='<ul>';                                       
-                     //post +='<li>Created:'+createdDate+'</li>';
-                    // post +='<li>Date:'+newDate+'</li>';                  
-                    // post +='Replies:'+replyCount+'';                  
-                    // post +='<li>Likes:'+likeCount+'</li>';              
-                    // post +='</ul>';
-                   //  post +='</div>';
-                   //  post +='</div>';                
-                    // post +='<hr size="1" color="lightgrey">'; 
+                     post +='</div>';                                  
                     post +='<br>';
                }
                                   
