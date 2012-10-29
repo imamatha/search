@@ -154,9 +154,9 @@ width:47%;
 padding:10px;
 
 display:inline;
--webkit-border-radius:31px;
--moz-border-radius: 31px;
-border-radius: 31px
+-webkit-border-radius:25px;
+-moz-border-radius: 25px;
+border-radius: 25px
 }
 .content-date
 {
