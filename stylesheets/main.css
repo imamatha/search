@@ -220,6 +220,7 @@ padding-bottom: 1px;
 border-width: thin;
 sets border width on all sides*/
         border-color: rgb(160,160,160);
+        border-style: hidden;
         line-height:1;
         /*text-align: justify; */
 }
