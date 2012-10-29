@@ -73,20 +73,20 @@ text-decoration:underline;
      float: right;
      /*vertical-align: right;*/
 }
-.image-button::selection{
+/*.image-button::selection{
     background-position: -176px -1360px;
-    /*background-position: -220px -1360px;*/
+    /*background-position: -220px -1360px;
     
      float: right;
-    /*width: 20px !important; */
+    /*width: 20px !important; 
 }
 .image-button::-moz-selection{
     background-position: -176px -1360px;
-    /*background-position: -220px -1360px;*/
+    /*background-position: -220px -1360px;
     
      float: right;
-    /*width: 20px !important; */
-}
+    /*width: 20px !important; 
+}*/
 
 /*
 .image-button{
