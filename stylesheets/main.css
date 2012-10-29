@@ -154,6 +154,9 @@ width:47%;
 padding:10px;
 
 display:inline;
+-webkit-border-radius:31px;
+-moz-border-radius: 31px;
+border-radius: 31px
 }
 .content-date
 {
