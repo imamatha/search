@@ -323,6 +323,7 @@ function search() {
 	$(".content").html("");
 	$(".content").hide();
     gadgets.window.adjustHeight();
+    vat html ="";
     var params = {
         //limit : $("#limit").val(),
         query : $("#query").val(),
@@ -516,9 +517,9 @@ function search() {
                                   
             });
                        
-                        html +=discussion;
-			html +=document;
-			html +=post;
+                       // html +=discussion;
+			//html +=document;
+			//html +=post;
 				
             console.log(html);
              $("#tabs-1").html(discussion);
