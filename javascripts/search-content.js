@@ -38,6 +38,11 @@ window.onload = function() {
   };
 
 };
+
+$(window).scroll(function(){
+  $("#div").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "slow" );
+});
+
 $("span.image-button").live('hover', function () {
       var curRowId = $(this).attr("id");
 	  if(curRowId.indexOf("DOC") != -1){
