@@ -7,6 +7,36 @@ function init() {
    
 }
 
+$("span.image-button").live('hover', function () {
+      var curRowId = $(this).attr("id");
+	  if(curRowId.indexOf("DOC") != -1){
+		var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+		//alert("found :: "+docID +" "+curRowId);
+		console.log("i'm in if section:document");
+		expandDocument(docID);
+		}
+		else if(curRowId.indexOf("post") != -1){
+			var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+			console.log("i'm in if section:blogID::"+blogpostId);
+			var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
+			console.log("i'm in if section:PostID::"+finalBlogId)
+			expandBlog(finalBlogId,blogpostId);
+		}
+		else
+		{
+			console.log("i'm in else section");
+			expandDiscussion(curRowId);
+		}
+
+	
+    });
+    
+    
+ $(function() {
+        $( "#tabs" ).tabs();
+    });
+    
+    
 window.onload = function() {
 
   function getScrollTop() {
@@ -39,38 +69,6 @@ window.onload = function() {
 
 };
 
-$(window).scroll(function(){
-  $("#div").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "slow" );
-});
-
-$("span.image-button").live('hover', function () {
-      var curRowId = $(this).attr("id");
-	  if(curRowId.indexOf("DOC") != -1){
-		var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
-		//alert("found :: "+docID +" "+curRowId);
-		console.log("i'm in if section:document");
-		expandDocument(docID);
-		}
-		else if(curRowId.indexOf("post") != -1){
-			var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
-			console.log("i'm in if section:blogID::"+blogpostId);
-			var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
-			console.log("i'm in if section:PostID::"+finalBlogId)
-			expandBlog(finalBlogId,blogpostId);
-		}
-		else
-		{
-			console.log("i'm in else section");
-			expandDiscussion(curRowId);
-		}
-
-	
-    });
-    
-    
- $(function() {
-        $( "#tabs" ).tabs();
-    });
     
  function monthConvert(d){
 
