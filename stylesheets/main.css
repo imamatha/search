@@ -149,7 +149,7 @@ top:150px;
 left:50.5%;
 right:270px;
 bottom:10px;
-width:40%;
+width:46%;
 /* background-color:#D8D8D8; */
 padding:10px;
 
@@ -175,7 +175,7 @@ font-size:12px;
 .firstdiv{
 background:white;
 position:relative;
-padding-top: 1px;
+padding-top: 0px;
 padding-bottom: 1px;
 }
 
