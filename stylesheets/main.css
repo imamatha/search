@@ -208,13 +208,14 @@ padding-bottom: 1px;
 }
 
 .withborder {
-       border: 1px solid black;
-       /* position:absolute;*/
+       border-right: 1px solid black;
+       /* position:absolute;
        top:5px;
        left:1px;
        width:50%;
        bottom:10px;
-       padding:1px;
+       padding:1px*/
+         width:50%;
        /* border-style: rigid;
 border-width: thin;
 sets border width on all sides*/
