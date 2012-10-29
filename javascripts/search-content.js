@@ -35,41 +35,7 @@ $("span.image-button").live('hover', function () {
  $(function() {
         $( "#tabs" ).tabs();
     });
-    
-    
-window.onload = function() {
 
-  function getScrollTop() {
-    if (typeof window.pageYOffset !== 'undefined' ) {
-      // Most browsers
-      return window.pageYOffset;
-    }
-
-    var d = document.documentElement;
-    if (d.clientHeight) {
-      // IE in standards mode
-      return d.scrollTop;
-    }
-
-    // IE in quirks mode
-    return document.body.scrollTop;
-  }
-
-  window.onscroll = function() {
-    var content = document.getElementById('box'),
-        scroll = getScrollTop();
-
-    if (scroll <= 148) {
-      content.style.top = "150px";
-    }
-    else {
-     content.style.top = (scroll + 2) + "px";
-    }
-  };
-
-};
-
-    
  function monthConvert(d){
 
   var outMonth="";
