@@ -141,7 +141,7 @@ width: 20px !important;
 */    
 
 .content{
-position:absolute;
+position:fixed;
 /*border:1px solid black;*/
 border:1px solid black;
 border-color:#A0A0A0;
