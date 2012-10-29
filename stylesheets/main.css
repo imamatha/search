@@ -253,7 +253,7 @@ padding-bottom: 1px;
 
 .withborder {
        border: 1px solid black;
-        position:absolute;
+        
        top:5px;
        left:1px;
        width:50%;
@@ -264,7 +264,7 @@ padding-bottom: 1px;
 border-width: thin;
 sets border width on all sides*/
         border-color: rgb(160,160,160);
-        border-style: hidden;
+        /*border-style: hidden;*/
         line-height:1;
         /*text-align: justify; */
 }
