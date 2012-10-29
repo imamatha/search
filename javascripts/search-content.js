@@ -323,7 +323,7 @@ function search() {
 	$(".content").html("");
 	$(".content").hide();
     gadgets.window.adjustHeight();
-    vat html ="";
+    var html ="";
     var params = {
         //limit : $("#limit").val(),
         query : $("#query").val(),
