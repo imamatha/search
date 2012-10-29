@@ -6,13 +6,20 @@ function init() {
     gadgets.window.adjustHeight();
    
 }
-$("li.image-button").live('click', function () {
+$("span.image-button").live('hover', function () {
       var curRowId = $(this).attr("id");
 	  if(curRowId.indexOf("DOC") != -1){
 		var docID = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
 		//alert("found :: "+docID +" "+curRowId);
 		console.log("i'm in if section:document");
 		expandDocument(docID);
+		}
+		else if(curRowId.indexOf("post") != -1){
+			var blogpostId = (curRowId.substring(curRowId.lastIndexOf("-"))).substr(1);
+			console.log("i'm in if section:blogID::"+blogpostId);
+			var finalBlogId=(blogpostId.substring(blogpostId.lastIndexOf("/"))).substr(1);
+			console.log("i'm in if section:PostID::"+finalBlogId)
+			expandBlog(finalBlogId,blogpostId);
 		}
 		else
 		{
@@ -70,10 +77,11 @@ function expandDiscussion(id){
 	 $(".content").html("");
 	$('.firstdiv').css('background-color', '#FFFFFF');
 	$('#div_'+id).css('background-color', '#F2F2F2');
+//	$('#div_'+id).css({"background-color":"#F2F2F2","padding-top":"0px","border":"1px #FFFFFF"});
 	console.log("Expand Row Id::: "+ id);
 	var discussionMessage="";
 	var correctanswer="";
-	var helfulanswer="";
+	var helpfulanswer="";
 	var rootmessage="";
 	var myDate="";
 	
@@ -87,19 +95,20 @@ function expandDiscussion(id){
 		}
 		else{
 			
-			
+			myDate=response.data.creationDate.substr(0,10);                  
+			myDate=myDate.split("-"); 
+			dateM=myDate[1];
+			var finalMonth=monthConvert(dateM);
+			var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
 		        console.log("I'm inside Root Message Div");
 		        rootmessage +='<div class="rootborder">';
-			rootmessage +='<ul>';
-			rootmessage +='<div ><a href="'+discussionresult.messages.root.resources.html.ref+'" target="_apps">'+discussionresult.messages.root.subject+'</a></div>';
-				
-			rootmessage +='<div class="root">';
-                	rootmessage +='<ul>';                   
-                	rootmessage +='<div class="align">'+discussionresult.messages.root.content.text+'</div>';                  
-                	rootmessage +='</ul>';
-                	rootmessage +='</div>';
-				
-			rootmessage +='</ul>';
+			//rootmessage +='<ul>';
+			rootmessage +='<div class="root-header"><a href="'+discussionresult.messages.root.resources.html.ref+'" target="_apps">'+discussionresult.messages.root.subject+'</a></div>';
+			rootmessage +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+response.data.author.username+'>'+response.data.author.name+'</a> on '+newDate+'</div>';	
+			rootmessage +='<span class="root">'+discussionresult.messages.root.content.text+'</span>';                             
+                	//rootmessage +=+discussionresult.messages.root.content.text+;                 
+                        rootmessage +='</div>';				
+			//rootmessage +='</ul>';
 			rootmessage +='</div>';
 			
 			
@@ -119,13 +128,14 @@ function expandDiscussion(id){
 									var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
 									console.log("I'm inside expand if");
 									correctanswer +='<div class="answerborder">';
-									correctanswer +='<ul>';
+									//correctanswer +='<ul>';
 									correctanswer +='<div class="correct">Correct Answer</div> ';
-									correctanswer +='<div>by&nbsp;';
-									correctanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a>';
-									correctanswer +='&nbsp;on&nbsp; '+newDate+'</div>';
+									//correctanswer +='<div>by&nbsp;';
+									//correctanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a>';
+									//correctanswer +='on&nbsp;'+newDate+'</div>';
+									correctanswer +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+'</div>';
 									correctanswer +='<div class="root">'+row.content.text+ '</div	>';
-									correctanswer +='</ul>';
+									//correctanswer +='</ul>';
 									correctanswer +='</div>';
 									
 									
@@ -137,15 +147,16 @@ function expandDiscussion(id){
 									var finalMonth=monthConvert(dateM);
 									var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
 									console.log("I'm inside expand if");
-									helfulanswer +='<div class="answerborder">';
-									helfulanswer +='<ul>';
-									helfulanswer +='<div class="helpful">Helpful Answer </div>';
-									helfulanswer +='<div>by &nbsp;';
-									helfulanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a>';
-									helfulanswer +='&nbsp;on&nbsp; '+ newDate + '</div>';
-									helfulanswer +='<div class="root">'+row.content.text+ '</div>';
-									helfulanswer +='</ul>';
-									helfulanswer +='</div>';
+									helpfulanswer +='<div class="answerborder">';
+								//	helpfulanswer +='<ul>';
+									helpfulanswer +='<div class="helpful">Helpful Answer </div>';
+									//helfulanswer +='<div>by &nbsp;';
+									//helfulanswer +='<a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a>';
+									helpfulanswer +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+row.author.username+'>'+row.author.name+'</a> on '+newDate+'</div>';
+									//helpfulanswer +='&nbsp;on&nbsp; '+ newDate + '</div>';
+									helpfulanswer +='<div class="root">'+row.content.text+ '</div>';
+									//helpfulanswer +='</ul>';
+									helpfulanswer +='</div>';
 									
 									
 								}
@@ -155,7 +166,7 @@ function expandDiscussion(id){
 					});
 					discussionMessage +=rootmessage;
 					discussionMessage +=correctanswer;
-					discussionMessage +=helfulanswer;
+					discussionMessage +=helpfulanswer;
 					console.log("Html Content:: "+discussionMessage);
 								$(".content").show();
 								$(".content").html(discussionMessage);
@@ -185,6 +196,7 @@ function expandDocument(id){
 		console.log("Expanding document response is " + JSON.stringify(response.data));
 		var discussionresult=response.data;
 		var isBinaryDoc=0;
+		var myDate="";
 		try {
 			if (response.data.content.binary.ref) {
 				isBinaryDoc = 1;
@@ -202,25 +214,101 @@ function expandDocument(id){
 			}
 			else{
 				if(isBinaryDoc !=0)
-				{
-					documentdata +='<div><h4>Description:'+response.data.content.binary.description+'</h4>';
-					documentdata +='This Link contains Binary content. Please click below link to open the document</p>';
-					documentdata +='<a class="nopad" href='+response.data.resources.html.ref+' target="_apps">'+response.data.content.binary.name+'</a>';
+				{       
+						myDate=response.data.creationDate.substr(0,10);                  
+			                        myDate=myDate.split("-"); 
+			                        dateM=myDate[1];
+						var finalMonth=monthConvert(dateM);
+						var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
+					documentdata += '<div class="rootborder">';
+					documentdata += '<span class="root-header"><a href="'+response.data.resources.html.ref+'" target="_app">';						
+					documentdata += response.data.subject+'</a></span>';
+					documentdata +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+response.data.author.username+'>'+response.data.author.name+'</a> on '+newDate+'</div></div>';
+					
+					documentdata += '<div class="answerborder root">'+response.data.content.binary.description;
+					//documentdata +='<div class="answerborder">';					
+					documentdata += '<span class="subtext">This document contains an uploaded document (PDF/DOC). ';
+					documentdata += 'Please click <a target="_app" href="'+response.data.resources.html.ref+'">here</a> to open the document</span></div>';
 					documentdata +='</div>';
 				}
 				else
 				{
+					myDate=response.data.creationDate.substr(0,10);                  
+			                myDate=myDate.split("-"); 
+			                dateM=myDate[1];
+				        var finalMonth=monthConvert(dateM);
+					var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
+					documentdata +='<div class="rootborder">';					
+					documentdata +='<span class="root-header"><a target="_app" href="'+response.data.resources.html.ref+'">';
+					documentdata += response.data.subject+'</a></span>';
+					documentdata +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+response.data.author.username+'>'+response.data.author.name+'</a> on '+newDate+'</div>';
+					documentdata +='</div>';
 					
-					documentdata +='<div>';
-					documentdata +='<ul>';
-					documentdata +='<li>'+response.data.subject+'</a></li>';
-					documentdata +='<div class="root">'+response.data.content.text +'</div>';
-                    documentdata +='</ul>'; 
+					documentdata +='<div class="answerborder">';
+					documentdata +='<span class="root">'+response.data.content.text +'</span></div>';				
+                                        
 				}
 			}
 			$(".content").show();
 			$(".content").html(documentdata);
 		});
+}
+function expandBlog(blogId, blogpostId){
+	var postId=blogpostId;
+	var finalpostId=postId.substr(0,postId.indexOf('/'))
+	console.log("Inside Blog expand and post id is"+finalpostId);
+	$(".content").html("");
+	$('.firstdiv').css('background-color', '#FFFFFF');
+	$('#div_'+finalpostId).css('background-color', '#F2F2F2');
+	console.log("Inside Blog expand");
+	var blogdata="";
+	var request = osapi.jive.core.blogs.get({id:blogId});
+		request.execute(function(response) {
+		console.log("Blog Post is"+JSON.stringify(response.data));
+		var request = response.data.posts.get();
+			request.execute(function(response) {
+				console.log("Posts in blog"+JSON.stringify(response.data));
+				var result = response.data;
+					if(!response.error) {
+						$.each(result, function(index, row) {
+							if(finalpostId.indexOf(row.id) != -1)
+							{
+							var postresult=row.get();
+							postresult.execute(function(response) {
+							console.log("Post Post is"+JSON.stringify(response.data));
+							if (response.error) {
+							console.log("Error in get: "+response.error.message);
+							}
+							else{
+							myDate=response.data.creationDate.substr(0,10);                  
+              myDate=myDate.split("-"); 
+              dateM=myDate[1];
+			        var finalMonth=monthConvert(dateM);
+							var newDate=finalMonth+" "+myDate[2]+","+myDate[0]; 
+							blogdata +='<div class="rootborder">';
+						        blogdata +='<span class="root-header"><a target="_app" href="'+response.data.resources.html.ref+'">';
+							blogdata += response.data.subject+'</a></span>';
+							blogdata +='<div class="content-date"> by <a class="nopad" href=https://apps-onprem.jivesoftware.com/people/'+response.data.author.username+'>'+response.data.author.name+'</a> on '+newDate+'</div>';
+							blogdata +='</div>';
+							
+							blogdata +='<div class="answerborder">';
+							blogdata +='<span class="root">'+response.data.content.text +'</span></div>';	
+							}
+							$(".content").show();
+							$(".content").html(blogdata);
+						});
+
+
+					}
+
+
+				});
+
+			}
+
+		});
+	});
+
 }
 // Perform a search and display the results
 function search() {
@@ -331,11 +419,13 @@ function search() {
 				{
 				  discussionImage +='<span class="jive-icon-med jive-icon-discussion"></span>';
 				}
-				
-                    		discussion +='<div id="div_'+discussionID+'" class="firstdiv">';
-				discussion +='<ul>';
-				discussion +=discussionImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';
-				discussion +='<li class="image-button" id="'+discussionID+'"></li>';
+			
+                    		discussion +='<div id="div_'+discussionID+'" class="firstdiv">';                    		
+				discussion +='<ul>';			
+				discussion +=discussionImage+'<li><a href="'+url+'" target="_apps">'+subject+'</a></li>';			
+                               	discussion +='</ul>'; 
+                                discussion +='<ul>';
+				discussion +='<span class="jive-icon-med image-button" id="'+discussionID+'"></span>';
                     		discussion +='</ul>'; 
 					
 				discussion +='<div class="root1">';  
@@ -350,8 +440,7 @@ function search() {
                                 discussion +='<ul>';                   
                    		discussion +='<div class="align">'+contentSummary+'</div>';                  
                     	        discussion +='</ul>';
-				discussion +='</div>';
-					                
+				discussion +='</div>';				                
 				discussion +='</div>';
 				discussion +='<br>';                
                            }
@@ -363,7 +452,9 @@ function search() {
                     		document +='<div id="div_'+docID+'" class="firstdiv"> ';
 				document +='<ul>';
                     		document +='<span class="jive-icon-med jive-icon-document"></span><li> <a href="'+url+'" target="_apps">'+subject+'</a></li>';
-				document +='<li class="image-button" id="DOC-'+docID+'" ></li>';
+                    		document +='</ul>';
+                    		document +='<ul>';
+				document +='<span class="jive-icon-med image-button" id="DOC-'+docID+'" ></span>';
                     		document +='</ul>';
                     
 				document +='<div class="root1">'; 
@@ -387,9 +478,16 @@ function search() {
                
 		       if(row.type=="post")
                           {
-                    	  post +='<div>';
+  			var postDetailsId=row.resources.self.ref;
+			var blogSummaryId=row.blogSummary.resources.self.ref;
+			var blogId = (blogSummaryId.substring(blogSummaryId.lastIndexOf("/"))).substr(1);
+			var postId = (postDetailsId.substring(postDetailsId.lastIndexOf("/"))).substr(1);
+                    	  post +='<div id="div_'+postId+'" class="firstdiv"> ';
 			  post +='<ul>';
                           post +='<span class="jive-icon-med jive-icon-blog"></span><li class="post" ><a href="'+url+'" target="_apps">'+subject+'</a></li>';
+                          post +='</ul>';
+                           post +='<ul>';
+                          post +='<span class="jive-icon-med image-button" id="post-'+postId+'/'+blogId+'" ></span>';                            
                           post +='</ul>';
                     
 		     	 post +='<div class="root1">'; 
