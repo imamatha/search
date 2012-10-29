@@ -524,7 +524,7 @@ function search() {
              $("#tabs-1").html(discussion);
               $("#tabs-2").html(document);
              $("#tabs-3").html(post);
-            $("#search-results").html(html);
+           // $("#search-results").html(html);
             $("#search-info").show();
             gadgets.window.adjustHeight();
         }
