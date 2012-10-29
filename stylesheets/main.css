@@ -1,3 +1,7 @@
+
+.ui-tabs { position: relative; padding: 0em; zoom: 1; } 
+.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 0 0; background: none; }
+
 .search-results ul li {
 display: inline;
 padding: 0 0;
@@ -277,4 +281,4 @@ font-weight:bold;
  color: black
  padding: 0 0;
  }
-.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+ 
