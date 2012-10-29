@@ -29,6 +29,12 @@ $("span.image-button").live('hover', function () {
 
 	
     });
+    
+    
+ $(function() {
+        $( "#tabs" ).tabs();
+    });
+    
  function monthConvert(d){
 
   var outMonth="";
@@ -515,6 +521,9 @@ function search() {
 			html +=post;
 				
             console.log(html);
+             $("#tabs-1").html(discussion);
+              $("#tabs-2").html(document);
+             $("#tabs-3").html(post);
             $("#search-results").html(html);
             $("#search-info").show();
             gadgets.window.adjustHeight();
