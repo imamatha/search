@@ -142,9 +142,10 @@ width: 20px !important;
 
 .content{
 position:absolute;
+/*border:1px solid black;*/
 border:1px solid black;
 border-color:#A0A0A0;
-top:170px;
+top:150px;
 left:50.5%;
 right:300px;
 bottom:10px;
