@@ -29,8 +29,8 @@ window.onload = function() {
     var content = document.getElementById('box'),
         scroll = getScrollTop();
 
-    if (scroll <= 28) {
-      content.style.top = "30px";
+    if (scroll <= 148) {
+      content.style.top = "150px";
     }
     else {
      content.style.top = (scroll + 2) + "px";
